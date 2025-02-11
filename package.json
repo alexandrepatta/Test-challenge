@@ -1,0 +1,10 @@
+{
+    "name": "test-challenge",
+    "version": "1.0.0",
+    "scripts": {
+      "test": "cypress run"
+    },
+    "dependencies": {
+      "cypress": "^14.0.2"
+    }
+  }
