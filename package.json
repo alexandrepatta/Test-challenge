@@ -2,9 +2,18 @@
     "name": "test-challenge",
     "version": "1.0.0",
     "scripts": {
-      "test": "cypress run"
+        "test": "cypress run",
+        "test-api": "newman run API/postman-collection.json"
     },
     "dependencies": {
-      "cypress": "^14.0.2"
+        "cypress": "^14.0.2"
+    },
+    "main": "cypress.config.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "newman": "^6.2.1"
     }
-  }
+}

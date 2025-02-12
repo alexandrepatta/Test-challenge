@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "66d0c77b-9da3-48bd-89f0-46525dcdca2d",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33406336"
+	},
+	"item": [
+		{
+			"name": "Get Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Teste de status code 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Teste para verificar se a estrutura JSON está correta\r",
+							"pm.test(\"Valid JSON structure\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    // Verifica se o retorno contém os campos esperados\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"id\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"name\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"username\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"email\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"address\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"phone\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"website\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Teste de status code 201 (Criação)\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Teste para verificar a estrutura do JSON de resposta\r",
+							"pm.test(\"Valid response JSON structure\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    // Verifica se a resposta contém os campos esperados\r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"    pm.expect(jsonData).to.have.property(\"name\");\r",
+							"    pm.expect(jsonData).to.have.property(\"username\");\r",
+							"    pm.expect(jsonData).to.have.property(\"email\");\r",
+							"    pm.expect(jsonData).to.have.property(\"address\");\r",
+							"    pm.expect(jsonData).to.have.property(\"phone\");\r",
+							"    pm.expect(jsonData).to.have.property(\"website\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Alexandre\",\r\n  \"username\": \"alexandrepatta\",\r\n  \"email\": \"novo@contratado.com\",\r\n  \"address\": {\r\n    \"street\": \"Rua Fictícia\",\r\n    \"suite\": \"Apt. 1\",\r\n    \"city\": \"São Paulo\",\r\n    \"zipcode\": \"00000-000\"\r\n  },\r\n  \"phone\": \"123-456-7890\",\r\n  \"website\": \"https://github.com/alexandrepatta/\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Status 200 Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Teste de Status 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200); // Verifica se o status da resposta é 200\r",
+							"});\r",
+							"\r",
+							"// Teste para verificar a estrutura do JSON\r",
+							"pm.test(\"Valid JSON structure\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    // Verifica se o retorno contém os campos esperados\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"id\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"name\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"username\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"email\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"address\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"phone\");\r",
+							"    pm.expect(jsonData[0]).to.have.property(\"website\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Status 400 Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Teste de Status 400\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400); // Verifica se o status da resposta é 400\r",
+							"});\r",
+							"\r",
+							"// Teste para verificar a resposta de erro\r",
+							"pm.test(\"Error message should be present\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"error\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"JSONPLACEHOLDER\": \"GIVE MY 401\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Status 500 Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Teste de Status 500\r",
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500); // Verifica se o status da resposta é 500\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": Novo Usuário,\r\n    \"username\": novo_usuario,\r\n    \"email\": novo@usuario.com,\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
